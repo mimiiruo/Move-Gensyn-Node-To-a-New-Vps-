@@ -1,6 +1,6 @@
 # Move Gensyn Nodes to New VPS
 
-*By Ez Labs Nodes — Jul 27, 2025*
+*By FasoNodes — Jul 27, 2025*
 
 ## Step 1: Make 100GB Swap
 
