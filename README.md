@@ -2,63 +2,45 @@
 
 *By Ez Labs Nodes — Jul 27, 2025*
 
----
-
 ## Step 1: Make 100GB Swap
 
 ```bash
-rm -rf create-swap-100.sh && \
-wget https://raw.githubusercontent.com/ezlabsnodes/autoinstall/main/create-swap-100.sh && \
-chmod +x create-swap-100.sh && \
-sudo ./create-swap-100.sh
+rm -rf create-swap-100.sh && wget https://raw.githubusercontent.com/ezlabsnodes/autoinstall/main/create-swap-100.sh && chmod +x create-swap-100.sh && sudo ./create-swap-100.sh
 ```
-
----
 
 ## Step 2: Install Dependency
 
 ```bash
-rm -rf depedency-nodejs.sh && \
-wget https://raw.githubusercontent.com/ezlabsnodes/autoinstall/main/depedency-nodejs.sh && \
-chmod +x depedency-nodejs.sh && \
-sudo ./depedency-nodejs.sh
+rm -rf depedency-nodejs.sh && wget https://raw.githubusercontent.com/ezlabsnodes/autoinstall/main/depedency-nodejs.sh && chmod +x depedency-nodejs.sh && sudo ./depedency-nodejs.sh
 ```
 
----
-
-## Step 3: Create Directory ezlabs
+## Step 3: Create Directory Ezlabs
 
 ```bash
-mkdir /root/ezlabs
+mkdir ezlabs
 ```
 
-Copy the following three files into `/root/ezlabs/`:
-
+Copy three files to `/root/ezlabs/`:
 - `swarm.pem`
-- `userApiKey.json`
+- `userApiKey.json` 
 - `userData.json`
 
----
-
-## Step 4: Run Gensyn Node
+## Step 4: Running Gensyn Node Use Systemd
 
 ```bash
-cd && rm -rf updateofficial.sh officialauto.zip && \
-wget https://raw.githubusercontent.com/ezlabsnodes/gensyn/main/updateofficial.sh && \
-chmod +x updateofficial.sh && \
-./updateofficial.sh
+cd && rm -rf officialauto.zip systemd.sh && wget -O systemd.sh https://raw.githubusercontent.com/ezlabsnodes/gensyn/main/systemd.sh && chmod +x systemd.sh && ./systemd.sh
 ```
 
-✅ **All Done**
+✅ **ALL DONE**
 
----
-
-## (Optional) Use Systemd Instead of Screen
-
-One-click command to migrate:
+## Check Logs
 
 ```bash
-wget -O systemd.sh https://raw.githubusercontent.com/ezlabsnodes/gensyn/main/systemd.sh && \
-chmod +x systemd.sh && \
-./systemd.sh
+journalctl -u rl-swarm -f -o cat
+```
+
+## Check All Logs
+
+```bash
+cat ~/rl-swarm/logs/swarm_launcher.log
 ```
